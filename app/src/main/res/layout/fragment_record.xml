@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/c_E9ECED"
+    tools:context=".ui.fragment.Record">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp_10">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/mIv_Tooth"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_238"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:scaleType="fitCenter"/>
+
+            <ImageView
+                android:id="@+id/mIv_Result"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_295"
+                android:layout_below="@id/mIv_Tooth"
+                android:layout_marginBottom="@dimen/dp_50"
+                android:scaleType="fitCenter"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

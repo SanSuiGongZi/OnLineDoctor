@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/c_E9ECED"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".ui.activity.PersonalDetails">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/mTool"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:background="?attr/colorPrimary">
+
+        <ImageView
+            android:id="@+id/mIv_getBack"
+            android:layout_width="@dimen/dp_15"
+            android:layout_height="@dimen/dp_15"
+            android:src="@drawable/get_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/setPersonageData"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dp_18" />
+
+        <TextView
+            android:id="@+id/preserve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/dp_10"
+            android:text="@string/preserve"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/dp_18" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/set_photo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginTop="@dimen/dp_2"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/mIv_setPhoto"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/mTv_setPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_toRightOf="@id/mIv_setPhoto"
+            android:text="@string/setphoto"
+            android:textSize="@dimen/dp_16" />
+
+        <ImageView
+            android:layout_width="@dimen/dp_15"
+            android:layout_height="@dimen/dp_15"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/dp_15"
+            android:src="@drawable/unfold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/set_phone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_8"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mTv_phoneName"
+            android:layout_width="@dimen/dp_90"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/phoneName"
+            android:textSize="@dimen/dp_16" />
+
+        <TextView
+            android:id="@+id/mTv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_toRightOf="@id/mTv_phoneName"
+            android:text="@string/phone"
+            android:textSize="@dimen/dp_16" />
+
+        <ImageView
+            android:layout_width="@dimen/dp_15"
+            android:layout_height="@dimen/dp_15"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/dp_15"
+            android:src="@drawable/unfold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/set_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_8"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mTv_name"
+            android:layout_width="@dimen/dp_90"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/name"
+            android:textSize="@dimen/dp_16" />
+
+        <TextView
+            android:id="@+id/mTv_UserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_toRightOf="@id/mTv_name"
+            android:text="@string/username"
+            android:textSize="@dimen/dp_16" />
+
+        <ImageView
+            android:layout_width="@dimen/dp_15"
+            android:layout_height="@dimen/dp_15"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/dp_15"
+            android:src="@drawable/unfold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/set_RealName"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_2"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mTv_RealNames"
+            android:layout_width="@dimen/dp_90"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/RealName"
+            android:textSize="@dimen/dp_16" />
+
+        <TextView
+            android:id="@+id/mTv_RealName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_toRightOf="@id/mTv_RealNames"
+            android:textSize="@dimen/dp_16" />
+
+        <ImageView
+            android:layout_width="@dimen/dp_15"
+            android:layout_height="@dimen/dp_15"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/dp_15"
+            android:src="@drawable/unfold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/set_Sex"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_2"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mTv_YouSex"
+            android:layout_width="@dimen/dp_90"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/sex"
+            android:textSize="@dimen/dp_16" />
+
+        <TextView
+            android:id="@+id/mTv_Sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_toRightOf="@id/mTv_YouSex"
+            android:textSize="@dimen/dp_16" />
+
+        <ImageView
+            android:layout_width="@dimen/dp_15"
+            android:layout_height="@dimen/dp_15"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/dp_15"
+            android:src="@drawable/unfold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/set_Year"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_2"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mTv_Year"
+            android:layout_width="@dimen/dp_90"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/age"
+            android:textSize="@dimen/dp_16" />
+
+        <TextView
+            android:id="@+id/mTv_Age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_toRightOf="@id/mTv_Year"
+            android:textSize="@dimen/dp_16" />
+
+        <ImageView
+            android:layout_width="@dimen/dp_15"
+            android:layout_height="@dimen/dp_15"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/dp_15"
+            android:src="@drawable/unfold" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.fragment.Encyclopedia">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <!--  app:tabMode="scrollable" -->
+    <android.support.design.widget.TabLayout
+        android:id="@+id/mTab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_margin="@dimen/dp_10"
+        app:tabBackground="@color/white"
+        app:tabGravity="fill"
+        app:tabIndicatorHeight="@dimen/dp_0"
+        app:tabMinWidth="@dimen/dp_80"
+        app:tabPadding="@dimen/dp_0"
+        app:tabPaddingEnd="@dimen/dp_5"
+        app:tabPaddingStart="@dimen/dp_5"
+        app:tabRippleColor="@color/white" />
+
+    <com.example.wayne.dentist.widget.BanViewPager
+        android:id="@+id/mVp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

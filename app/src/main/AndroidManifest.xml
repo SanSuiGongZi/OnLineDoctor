@@ -3,22 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.wayne.dentist">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 地图包、搜索包需要的基础权限 -->
+
+    <!--允许程序打开网络套接字-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--允许程序设置内置sd卡的写权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--允许程序获取网络状态-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--允许程序访问WiFi网络信息-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--允许程序读写手机状态和身份-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".base.BaseApp"
         android:allowBackup="true"
         android:appComponentFactory=""
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ency_ok"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ency_ok"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:appComponentFactory">
+        tools:replace="android:appComponentFactory"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
         <activity
             android:name=".ui.activity.MainActivity"
             android:theme="@style/Theme">
@@ -43,7 +54,14 @@
         <activity
             android:name=".ui.activity.HostitalMessageActivity"
             android:theme="@style/Theme" />
-        <activity android:name=".ui.activity.MakeAnAppointment"></activity>
+        <activity android:name=".ui.activity.MakeAnAppointment" />
+        <activity android:name=".ui.activity.RegulateActivity" />
+        <activity android:name=".ui.activity.PreselectionActivity"/>
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="您的Key"/>
+
     </application>
 
 </manifest>

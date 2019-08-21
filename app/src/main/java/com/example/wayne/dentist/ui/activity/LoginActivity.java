@@ -176,13 +176,13 @@ public class LoginActivity extends BaseActivity<LoginView, LoginPre> implements 
                 //切换登录方式
                 if (mBoolean) {
                     mTvSwitchover.setText(getResources().getText(R.string.login_password));
-                    mTvLogin.setText(getResources().getText(R.string.login_password));
+                    mTvLogin.setText(getResources().getText(R.string.login_hostital));
                     mBoolean = false;
                     isLoginAccount.setVisibility(View.GONE);
                     isLoginPhone.setVisibility(View.VISIBLE);
                 } else {
                     mTvSwitchover.setText(getResources().getText(R.string.login_nopassword));
-                    mTvLogin.setText(getResources().getText(R.string.login_hostital));
+                    mTvLogin.setText(getResources().getText(R.string.login_password));
                     mBoolean = true;
                     isLoginAccount.setVisibility(View.VISIBLE);
                     isLoginPhone.setVisibility(View.GONE);
@@ -194,9 +194,9 @@ public class LoginActivity extends BaseActivity<LoginView, LoginPre> implements 
                 mPhone = mEtPhone.getText().toString().trim();
 
                 if (!mPhone.isEmpty()) {
-                    if (mPhone.length() == 11){
+                    if (mPhone.length() == 11) {
                         mPresenter.getLogin(mPhone);
-                    }else {
+                    } else {
                         ToastUtil.showShort("请输入正确的手机号");
                     }
                 } else {
@@ -240,6 +240,7 @@ public class LoginActivity extends BaseActivity<LoginView, LoginPre> implements 
             mSn = bean.getSn();
             ToastUtil.showShort(bean.getMsg());
             isRegister = true;
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
         } else {
             if (bean.getMsg().equals("手机号码不存在")) {
                 mPresenter.getRegister(mPhone);
@@ -254,9 +255,9 @@ public class LoginActivity extends BaseActivity<LoginView, LoginPre> implements 
     public void getRegister(RegisterBean bean) {
         if (bean.getResult() == 1) {
 
+            ToastUtil.showShort(bean.getMsg());
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
-            ToastUtil.showShort(bean.getMsg());
         }
         ToastUtil.showShort(bean.getMsg());
     }
@@ -276,6 +277,9 @@ public class LoginActivity extends BaseActivity<LoginView, LoginPre> implements 
     public void getUserLogin(LoginUserBean loginUserBean) {
         if (loginUserBean.getResult() == 1) {
             mToken = loginUserBean.getToken();
+
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
         } else {
             ToastUtil.showShort(loginUserBean.getMsg());
         }

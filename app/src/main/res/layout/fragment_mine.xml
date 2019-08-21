@@ -61,9 +61,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
-                        android:textSize="@dimen/dp_14"
                         android:layout_toRightOf="@id/mRl"
-                        android:text="@string/username" />
+                        android:text="@string/username"
+                        android:textSize="@dimen/dp_14" />
 
                     <TextView
                         android:id="@+id/mTv_set"
@@ -103,8 +103,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/dp_5"
                         android:text="@string/TheBartenderOutpatient"
-                        android:textSize="@dimen/dp_14"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dp_14" />
 
                     <LinearLayout
                         android:id="@+id/mLL_setHospital"
@@ -117,8 +117,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/dp_5"
-                            android:textSize="@dimen/dp_14"
-                            android:text="@string/SetTheBartenderOutpatient" />
+                            android:text="@string/SetTheBartenderOutpatient"
+                            android:textSize="@dimen/dp_14" />
 
                         <ImageView
                             android:layout_width="@dimen/dp_15"
@@ -136,33 +136,33 @@
                         android:layout_below="@id/mTv"
                         android:layout_margin="@dimen/dp_10"
                         android:gravity="center"
-                        android:orientation="vertical"
-                        >
+                        android:visibility="invisible"
+                        android:orientation="vertical">
 
                         <ImageView
-                            android:src="@drawable/ic_launcher_background"
                             android:id="@+id/mIv_Hospital"
                             android:layout_width="@dimen/dp_50"
-                            android:layout_height="@dimen/dp_50" />
+                            android:layout_height="@dimen/dp_50"
+                            android:src="@drawable/ic_launcher_background" />
 
                         <TextView
-                            android:text="@string/hostital"
                             android:id="@+id/mTv_Hospital"
-                            android:textSize="@dimen/dp_14"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/dp_5" />
+                            android:layout_margin="@dimen/dp_5"
+                            android:text="@string/hostital"
+                            android:textSize="@dimen/dp_14" />
 
                     </LinearLayout>
 
                     <TextView
-                        android:visibility="gone"
                         android:id="@+id/mTv_NoHospital"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/noHospital"
-                        android:textSize="@dimen/dp_16" />
+                        android:textSize="@dimen/dp_16"
+                        android:visibility="visible" />
 
                 </RelativeLayout>
 
@@ -187,8 +187,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/dp_5"
                         android:text="@string/ServiceItem"
-                        android:textSize="@dimen/dp_14"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dp_14" />
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/mRv_serve"
@@ -223,8 +223,8 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="@dimen/dp_5"
                         android:text="@string/BuyerNotice"
-                        android:textSize="@dimen/dp_14"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dp_14" />
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/mRv_BuyerNotice"

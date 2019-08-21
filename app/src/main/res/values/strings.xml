@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Dentist</string>
     <string name="TollName">口腔健康监测档案</string>
     <string name="unknow_error">未知错误</string>
@@ -10,10 +10,16 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cyclopedia">百科</string>
+    <string name="inquary">问诊</string>
+    <string name="file">档案</string>
+    <string name="me">我的</string>
     <string name="maintenance">养护百科</string>
     <string name="clinic">诊疗百科</string>
     <string name="weekly">百科周刊</string>
     <string name="recommend">推荐阅读</string>
+
+    <!--  我的模块 -->
     <string name="username">游客</string>
     <string name="setData">资料编辑</string>
     <string name="setphoto">修改头像</string>
@@ -28,8 +34,9 @@
     <string name="TheBartenderOutpatient">定保门诊</string>
     <string name="SetTheBartenderOutpatient">更改定保门诊</string>
     <string name="ServiceItem">服务项目</string>
+    <string name="onLine">在线预约</string>
     <string name="BuyerNotice">近期活动</string>
-    <string name="noHospital">抱歉,您还未选择门诊,请选择门诊</string>
+    <string name="noHospital">尚无定保门诊,预选定保门诊</string>
     <string name="no">取消</string>
     <string name="camera">相机</string>
     <string name="photo">相册</string>
@@ -37,6 +44,18 @@
     <string name="lady">女</string>
     <string name="secrecy">保密</string>
     <string name="setPhone">手机号</string>
+
+    <!--  定保门诊模块 -->
+    <string name="opinion">意见反馈</string>
+    <string name="regulate">管理定保诊所</string>
+    <string name="preselection">预选定保诊所</string>
+    <string name="site">定位地址:</string>
+    <string name="location">无法获得地址</string>
+    <string name="import_location">手动输入定位地址</string>
+    <string name="localizer">定位</string>
+    <string name="preconcentration" tools:ignore="TypographyDashes">已预选定保门诊,等待系统审核,预计1-2个工作日</string>
+
+    <!--  Login模块 -->
     <string name="_86">+86</string>
     <string name="getCode">获取验证码</string>
     <string name="setCode">输入验证码</string>
@@ -45,6 +64,8 @@
     <string name="retrievePassword">找回密码</string>
     <string name="setPassWord">密码</string>
     <string name="setAccount">手机号/邮箱</string>
+
+    <!-- 设置模块 -->
     <string name="install">设置</string>
     <string name="clear_cache">清除缓存</string>
     <string name="as_regards">关于</string>
@@ -60,6 +81,8 @@
     <string name="setNewPhone">请在此输入新手机的号码</string>
     <string name="hint_name">长度不能超过十个字</string>
     <string name="hint_RealName">为保证您正常就医,请填写真实姓名</string>
+
+    <!-- 诊所详情模块 -->
     <string name="hostitalMessage">查看定保门诊信息</string>
     <string name="hostital">天秀口腔</string>
     <string name="Official_Accounts">公众号</string>
@@ -70,16 +93,25 @@
     <string name="official_website">官网</string>
     <string name="cure_project">治疗项目</string>
     <string name="baidu">https://www.baidu.com</string>
-    <string name="cyclopedia">百科</string>
-    <string name="inquary">问诊</string>
-    <string name="file">档案</string>
-    <string name="me">我的</string>
-    <string name="onLine">在线预约</string>
+
     <string name="login_hostital">登录家有牙医,体验更多功能</string>
     <string name="setcode">获取验证码</string>
     <string name="login_password">密码登录</string>
     <string name="login_nopassword">免密码登录</string>
     <string name="elseLogin">其他登录方式</string>
     <string name="agreement">登录或注册即同意《家有牙医用户协议》、《隐私保密协议》</string>
+
+    <!-- 问诊 -->
+    <string name="hello">嗨,我是您的私人医生,您感觉牙齿存在什么问题呢?或者有哪些不适呢?</string>
+    <string name="symptom_toothache">牙疼</string>
+    <string name="describe_symptom">是怎么样的牙疼呢?</string>
+    <string name="describe_symptom_eat">吃东西时才会疼</string>
+    <string name="describe_symptom_eat_of">吃什么东西会感到牙疼呢?</string>
+    <string name="describe_symptom_eat_cold">冷食或甜食</string>
+    <string name="describe_symptom_eat_hot">热食</string>
+    <string name="if_stopEat">停止食用是否会得到缓解呢?</string>
+    <string name="if_stopEat_yes">是</string>
+    <string name="if_stopEat_no">否</string>
+    <string name="result">感谢您的耐心配合，您很可能患有龋病（虫牙）。为进一步确诊，推荐您根据提示，使用识图自诊进一步确定病症，并在推荐阅读中了解相关内容</string>
 
 </resources>

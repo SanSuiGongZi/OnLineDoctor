@@ -1,7 +1,6 @@
 package com.example.wayne.dentist.ui.fragment;
 
 
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,7 +10,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,8 +33,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -97,7 +93,7 @@ public class Fragment_ency_son extends BaseFragment<EncyView_Son, EncyPre_Son> i
         mIcon.add(R.drawable.img2);
         mIcon.add(R.drawable.img3);
         mIcon.add(R.drawable.img4);
-        mIcon.add(R.drawable.img5);
+        mIcon.add(R.drawable.img4);
 
         if (page != 115) {
             mTab.setVisibility(GridView.VISIBLE);

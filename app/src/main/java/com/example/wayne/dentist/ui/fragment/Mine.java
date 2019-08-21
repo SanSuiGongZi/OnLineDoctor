@@ -24,6 +24,7 @@ import com.example.wayne.dentist.mvp.mine.MineView;
 import com.example.wayne.dentist.ui.activity.HostitalMessageActivity;
 import com.example.wayne.dentist.ui.activity.InstallActivity;
 import com.example.wayne.dentist.ui.activity.PersonalDetails;
+import com.example.wayne.dentist.ui.activity.RegulateActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -81,9 +82,10 @@ public class Mine extends BaseFragment<MineView, MinePre> implements MineView {
         SpannableStringBuilder builder = new SpannableStringBuilder(mTvNoHospital.getText());
         //设置前景色
         ForegroundColorSpan span = new ForegroundColorSpan(getResources().getColor(R.color.blue));
-        UnderlineSpan span1 = new UnderlineSpan();
-        builder.setSpan(span, (mTvNoHospital.length() - 2), mTvNoHospital.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-        builder.setSpan(span1, (mTvNoHospital.length() - 2), mTvNoHospital.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+        //设置下划线
+        //UnderlineSpan span1 = new UnderlineSpan();
+        builder.setSpan(span, (mTvNoHospital.length() - 6), mTvNoHospital.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+       // builder.setSpan(span1, (mTvNoHospital.length() - 6), mTvNoHospital.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
         mTvNoHospital.setText(builder);
 
     }
@@ -110,6 +112,7 @@ public class Mine extends BaseFragment<MineView, MinePre> implements MineView {
                 break;
             case R.id.mTv_NoHospital:
                 //设置定保诊所
+                startActivity(new Intent(getActivity(),RegulateActivity.class));
                 break;
             case R.id.mLL_hospital:
                 //查看门诊信息

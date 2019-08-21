@@ -1,6 +1,5 @@
 package com.example.wayne.dentist.ui.activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -8,9 +7,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -30,7 +32,6 @@ import com.example.wayne.dentist.ui.fragment.Encyclopedia;
 import com.example.wayne.dentist.ui.fragment.Inquiry;
 import com.example.wayne.dentist.ui.fragment.Mine;
 import com.example.wayne.dentist.ui.fragment.Record;
-import com.example.wayne.dentist.util.ImageLoader;
 import com.example.wayne.dentist.util.SpUtil;
 import com.jaeger.library.StatusBarUtil;
 
@@ -54,14 +55,20 @@ public class MainActivity extends BaseActivity<MainView, MainPre> implements Mai
     FrameLayout flLayout;
     @BindView(R.id.imageview)
     ImageView imageview;
-
     //ToolBar中需要显示隐藏的控件
-    @BindView(R.id.mSearch)
-    SearchView mSearch;
     @BindView(R.id.mRl_Toll)
     RelativeLayout mRlToll;
     @BindView(R.id.mTab)
     TabLayout mTab;
+    //搜索框
+    @BindView(R.id.mIv_Search)
+    ImageView mIvSearch;
+    @BindView(R.id.mEt_Search)
+    EditText mEtSearch;
+    @BindView(R.id.mIv_Clear)
+    ImageView mIvClear;
+    @BindView(R.id.mLl_Search)
+    LinearLayout mLlSearch;
 
     private FragmentManager manager;
     private ArrayList<BaseFragment> mList;
@@ -88,15 +95,6 @@ public class MainActivity extends BaseActivity<MainView, MainPre> implements Mai
         setSupportActionBar(mTool);
         StatusBarUtil.setLightMode(this);
 
-       /* //设置搜索框
-        //设置提示内容
-        SpannableString spanText = new SpannableString("哪里不舒服或者想了解什么知识,请简短输入");
-        //设置字体大小
-        spanText.setSpan(new AbsoluteSizeSpan(20,true),0,spanText.length(),Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-        //设置字体颜色
-        spanText.setSpan(new ForegroundColorSpan(Color.BLACK),0,spanText.length(),Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-        mSearch.setQueryHint(spanText);*/
-
         manager = getSupportFragmentManager();
 
         mList = new ArrayList<>();
@@ -105,6 +103,7 @@ public class MainActivity extends BaseActivity<MainView, MainPre> implements Mai
         mList.add(new Record());
         mList.add(new Mine());
 
+        //设置tab选择
         mTab.addTab(mTab.newTab().setText(R.string.cyclopedia).setIcon(R.drawable.ency_selector));
         mTab.addTab(mTab.newTab().setText(R.string.inquary).setIcon(R.mipmap.inquiry_no));
         mTab.addTab(mTab.newTab().setText(R.string.file).setIcon(R.mipmap.record_no));
@@ -117,6 +116,7 @@ public class MainActivity extends BaseActivity<MainView, MainPre> implements Mai
 
         initAddHomeFrag();
 
+        //将碎片与tab绑定
         mTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -132,7 +132,7 @@ public class MainActivity extends BaseActivity<MainView, MainPre> implements Mai
                         break;
                     case 3:
                         String param = (String) SpUtil.getParam(Constants.TOKEN, "");
-                        if (!param.isEmpty()) {
+                        if (param.isEmpty()) {
                             switchFragments(MINE);
                         } else {
                             startActivity(new Intent(MainActivity.this, LoginActivity.class));
@@ -154,22 +154,72 @@ public class MainActivity extends BaseActivity<MainView, MainPre> implements Mai
 
     }
 
+    @Override
+    public void initData() {
+
+        mEtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                mIvClear.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.toString().trim().isEmpty()) {
+                    mIvClear.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        mEtSearch.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
+
+                    // 1. 点击搜索按键后，根据输入的搜索字段进行查询
+                    // 注：由于此处需求会根据自身情况不同而不同，所以具体逻辑由开发者自己实现，此处仅留出接口
+                    String search = mEtSearch.getText().toString().trim();
+                    if (!search.isEmpty()) {
+                        Toast.makeText(getApplication(), search, Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                return false;
+            }
+        });
+
+    }
+
+    //进入app默认第一页
     private void initAddHomeFrag() {
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.fl_layout, mList.get(0));
         transaction.commit();
     }
 
-    @OnClick({R.id.mIv_photo, R.id.imageview})
+    @OnClick({R.id.mIv_photo, R.id.imageview, R.id.mIv_Clear})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.mIv_photo:
                 break;
             case R.id.imageview:
                 break;
+            case R.id.mIv_Clear:
+
+                mIvClear.setVisibility(View.INVISIBLE);
+                mEtSearch.setText("");
+
+                break;
         }
     }
 
+    //切换碎片
     private void switchFragments(int page) {
         //获取需要显示的碎片
         Fragment fragment = mList.get(page);

@@ -41,6 +41,7 @@
         android:layout_below="@id/mView">
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -96,7 +97,10 @@
 
             </RelativeLayout>
 
-            
+            <com.amap.api.maps.MapView
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_300"/>
 
         </LinearLayout>
 

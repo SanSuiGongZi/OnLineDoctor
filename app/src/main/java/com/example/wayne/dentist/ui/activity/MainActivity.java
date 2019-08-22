@@ -98,19 +98,19 @@ public class MainActivity extends BaseActivity<MainView, MainPre> implements Mai
         manager = getSupportFragmentManager();
 
         mList = new ArrayList<>();
-        mList.add(new Encyclopedia());
         mList.add(new Inquiry());
+        mList.add(new Encyclopedia());
         mList.add(new Record());
         mList.add(new Mine());
 
         //设置tab选择
-        mTab.addTab(mTab.newTab().setText(R.string.cyclopedia).setIcon(R.drawable.ency_selector));
         mTab.addTab(mTab.newTab().setText(R.string.inquary).setIcon(R.mipmap.inquiry_no));
+        mTab.addTab(mTab.newTab().setText(R.string.cyclopedia).setIcon(R.drawable.ency_selector));
         mTab.addTab(mTab.newTab().setText(R.string.file).setIcon(R.mipmap.record_no));
         mTab.addTab(mTab.newTab().setText(R.string.me).setIcon(R.mipmap.me_no));
 
-        mTab.getTabAt(0).setCustomView(getTabView(BaseApp.getRes().getString(R.string.cyclopedia), R.drawable.ency_selector));
-        mTab.getTabAt(1).setCustomView(getTabView(BaseApp.getRes().getString(R.string.inquary), R.mipmap.inquiry_no));
+        mTab.getTabAt(0).setCustomView(getTabView(BaseApp.getRes().getString(R.string.inquary), R.mipmap.inquiry_no));
+        mTab.getTabAt(1).setCustomView(getTabView(BaseApp.getRes().getString(R.string.cyclopedia), R.drawable.ency_selector));
         mTab.getTabAt(2).setCustomView(getTabView(BaseApp.getRes().getString(R.string.file), R.mipmap.record_no));
         mTab.getTabAt(3).setCustomView(getTabView(BaseApp.getRes().getString(R.string.me), R.mipmap.me_no));
 

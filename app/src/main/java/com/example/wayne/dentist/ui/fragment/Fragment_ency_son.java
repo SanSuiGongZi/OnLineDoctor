@@ -1,6 +1,7 @@
 package com.example.wayne.dentist.ui.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -77,11 +79,20 @@ public class Fragment_ency_son extends BaseFragment<EncyView_Son, EncyPre_Son> i
         mPresenter.getTest(1);  //此为测试的数据
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void initView() {
         mRv.setLayoutManager(new LinearLayoutManager(getActivity()));
         mAdapterSrl = new Adapter_srl(getActivity());
         mRv.setAdapter(mAdapterSrl);
+
+        mTab.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+
     }
 
     @Override
@@ -89,11 +100,11 @@ public class Fragment_ency_son extends BaseFragment<EncyView_Son, EncyPre_Son> i
         final List<TabSonBean.DataBean> list = tabSonBean.getData();
 
         mIcon = new ArrayList<>();
-        mIcon.add(R.drawable.img1);
-        mIcon.add(R.drawable.img2);
-        mIcon.add(R.drawable.img3);
-        mIcon.add(R.drawable.img4);
-        mIcon.add(R.drawable.img4);
+        mIcon.add(R.drawable.selector_upgrowth);
+        mIcon.add(R.drawable.selector_upgrowth);
+        mIcon.add(R.drawable.selector_teeth_clean);
+        mIcon.add(R.drawable.selector_habit);
+        mIcon.add(R.drawable.selector_goto_a_doctor);
 
         if (page != 115) {
             mTab.setVisibility(GridView.VISIBLE);
@@ -170,7 +181,7 @@ public class Fragment_ency_son extends BaseFragment<EncyView_Son, EncyPre_Son> i
         TextView textView = (TextView) v.findViewById(R.id.textview);
         textView.setText(title);
         ImageView imageView = (ImageView) v.findViewById(R.id.imageview);
-        ImageLoader.setCircleImage(getActivity(), image_src, imageView, image_src);
+        imageView.setImageResource(image_src);
         if (location == 0) {
             textView.setTextColor(getResources().getColor(R.color.c_2ABFFF));
         } else {

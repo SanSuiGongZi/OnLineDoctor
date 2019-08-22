@@ -28,16 +28,12 @@
         android:roundIcon="@mipmap/ency_ok"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:appComponentFactory"
-        tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute"
+        tools:replace="android:appComponentFactory">
         <activity
             android:name=".ui.activity.MainActivity"
             android:theme="@style/Theme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ui.activity.PersonalDetails"
@@ -56,11 +52,19 @@
             android:theme="@style/Theme" />
         <activity android:name=".ui.activity.MakeAnAppointment" />
         <activity android:name=".ui.activity.RegulateActivity" />
-        <activity android:name=".ui.activity.PreselectionActivity"/>
+        <activity android:name=".ui.activity.PreselectionActivity" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="您的Key"/>
+            android:value="499a9418939d5b5a996bfaa190fa086a" />
 
     </application>
 

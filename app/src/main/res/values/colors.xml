@@ -15,6 +15,7 @@
     <color name="c_BDD7EE">#BDD7EE</color>
     <color name="c_D9D9D9">#D9D9D9</color>
     <color name="blue">#0066FF</color>
+    <color name="c_6CB1FF">#6CB1FF</color>
     <color name="red">#fa0c0c</color>
     <color name="c_60">#ccf5f5f5</color>
     <color name="c_60s">#60000000</color>
@@ -35,4 +36,6 @@
     <color name="c_CBCBCB">#CBCBCB</color>
     <color name="c_B0B0B0">#B0B0B0</color>
     <color name="c_F5F5F5">#F5F5F5</color>
+    <color name="c_CFDEED">#605FCCFF</color>
+    <color name="c_FBFBFB">#FBFBFB</color>
 </resources>

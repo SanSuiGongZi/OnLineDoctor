@@ -84,7 +84,7 @@ public class SetDetailsActivity extends BaseActivity<SetDetailsView,SetDetailsPr
     }
 
     @Override
-    public void initView() {
+    public void initView(Bundle savedInstanceState) {
         mTool.setTitle("");
         setSupportActionBar(mTool);
         StatusBarUtil.setLightMode(this);

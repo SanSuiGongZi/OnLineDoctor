@@ -6,17 +6,18 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!-- 地图包、搜索包需要的基础权限 -->
 
-    <!--允许程序打开网络套接字-->
+
+    <!-- 允许程序打开网络套接字 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--允许程序设置内置sd卡的写权限-->
+    <!-- 允许程序设置内置sd卡的写权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--允许程序获取网络状态-->
+    <!-- 允许程序获取网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--允许程序访问WiFi网络信息-->
+    <!-- 允许程序访问WiFi网络信息 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--允许程序读写手机状态和身份-->
+    <!-- 允许程序读写手机状态和身份 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+    <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
@@ -34,6 +35,12 @@
             android:name=".ui.activity.MainActivity"
             android:theme="@style/Theme">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
         <activity
             android:name=".ui.activity.PersonalDetails"
@@ -50,15 +57,21 @@
         <activity
             android:name=".ui.activity.HostitalMessageActivity"
             android:theme="@style/Theme" />
-        <activity android:name=".ui.activity.MakeAnAppointment" />
-        <activity android:name=".ui.activity.RegulateActivity" />
-        <activity android:name=".ui.activity.PreselectionActivity" >
+        <activity
+            android:name=".ui.activity.MakeAnAppointment"
+            android:theme="@style/Theme" />
+        <activity
+            android:name=".ui.activity.RegulateActivity"
+            android:theme="@style/Theme" />
+        <activity
+            android:name=".ui.activity.PreselectionActivity"
+            android:theme="@style/Theme">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        </activity>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity
+            android:name=".ui.activity.ImportActivity"
+            android:theme="@style/Theme">
 
         </activity>
 

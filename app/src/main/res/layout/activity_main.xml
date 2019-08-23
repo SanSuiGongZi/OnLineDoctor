@@ -6,13 +6,60 @@
     android:layout_height="match_parent"
     android:clipChildren="false"
     android:fitsSystemWindows="true"
+    android:background="@color/c_FBFBFB"
     tools:context=".ui.activity.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/mTool"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_51"
-        android:background="@color/white">
+        android:layout_height="@dimen/dp_51">
+
+        <RelativeLayout
+            android:id="@+id/mRl_inquiry"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/mIv_quit"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/dp_25"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/mIv_photograph"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_toRightOf="@id/mIv_quit"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/inquary"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp_14" />
+
+            <ImageView
+                android:id="@+id/mIv_photoCircle"
+                android:layout_width="@dimen/dp_35"
+                android:layout_height="@dimen/dp_35"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="@dimen/dp_10"
+                android:background="@drawable/redio_shape1"
+                android:padding="@dimen/dp_2"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background" />
+
+        </RelativeLayout>
 
         <!--
             android:focusable="true"
@@ -30,7 +77,8 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/mIv_Search"

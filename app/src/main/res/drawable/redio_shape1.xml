@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:innerRadius="@dimen/dp_16_5"
     android:shape="ring"
-    android:useLevel="false"
-    android:innerRadius="@dimen/dp_25"
-    android:thickness="@dimen/dp_2">
+    android:thickness="@dimen/dp_1"
+    android:useLevel="false">
 
     <gradient
         android:angle="0"
         android:centerX="0.9"
         android:centerY="0.9"
-        android:startColor="@color/black"
-        android:endColor="@color/black"/>
+        android:endColor="@color/c_6CB1FF"
+        android:startColor="@color/c_6CB1FF" />
 
 </shape>

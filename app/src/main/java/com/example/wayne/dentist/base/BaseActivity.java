@@ -26,14 +26,14 @@ public abstract class BaseActivity<V extends BaseView , P extends BasePre> exten
         if (mPresenter != null) {
             mPresenter.BindView( (V) this );                  //其实 this就可以了
         }
-        initView();
+        initView(savedInstanceState);
         initData();
     }
 
     protected abstract P getPresenter();
 
 
-    public void initView() {
+    public void initView(Bundle savedInstanceState) {
 
     }
 

@@ -103,7 +103,7 @@ public class PersonalDetails extends BaseActivity<PersonalView, PersonalPre> imp
     }
 
     @Override
-    public void initView() {
+    public void initView(Bundle savedInstanceState) {
         mTool.setTitle("");
         setSupportActionBar(mTool);
         StatusBarUtil.setLightMode(this);

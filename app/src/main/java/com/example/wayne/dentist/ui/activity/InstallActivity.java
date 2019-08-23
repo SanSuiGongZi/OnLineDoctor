@@ -41,7 +41,7 @@ public class InstallActivity extends BaseActivity<InstallView, InstallPre> imple
     }
 
     @Override
-    public void initView() {
+    public void initView(Bundle savedInstanceState) {
         mTool.setTitle("");
         setSupportActionBar(mTool);
         StatusBarUtil.setLightMode(this);

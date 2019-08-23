@@ -46,7 +46,7 @@ public class RegulateActivity extends BaseActivity<RegulateView, RegulatePre> im
     }
 
     @Override
-    public void initView() {
+    public void initView(Bundle savedInstanceState) {
 
         mTool.setTitle("");
         setSupportActionBar(mTool);
@@ -64,7 +64,7 @@ public class RegulateActivity extends BaseActivity<RegulateView, RegulatePre> im
         //设置颜色(预选定保诊所)
         SpannableStringBuilder builders = new SpannableStringBuilder(preconcentration.getText());
         ForegroundColorSpan spans = new ForegroundColorSpan(getResources().getColor(R.color.blue));
-        builders.setSpan(spans, (mTVRegulate.length()-6), mTVRegulate.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+        builders.setSpan(spans, (preconcentration.length()-6), preconcentration.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
         mTVRegulate.setText(builders);
 
     }

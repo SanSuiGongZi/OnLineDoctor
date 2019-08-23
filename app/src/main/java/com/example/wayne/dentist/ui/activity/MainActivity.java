@@ -17,7 +17,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +31,7 @@ import com.example.wayne.dentist.ui.fragment.Encyclopedia;
 import com.example.wayne.dentist.ui.fragment.Inquiry;
 import com.example.wayne.dentist.ui.fragment.Mine;
 import com.example.wayne.dentist.ui.fragment.Record;
+import com.example.wayne.dentist.util.ImageLoader;
 import com.example.wayne.dentist.util.SpUtil;
 import com.jaeger.library.StatusBarUtil;
 
@@ -45,30 +45,39 @@ import static com.example.wayne.dentist.util.UIUtils.getContext;
 
 public class MainActivity extends BaseActivity<MainView, MainPre> implements MainView {
 
-    @BindView(R.id.tv_tv)
-    TextView tvTv;
-    @BindView(R.id.mIv_photo)
-    ImageView mIvPhoto;
     @BindView(R.id.mTool)
     Toolbar mTool;
+    @BindView(R.id.mTab)
+    TabLayout mTab;
     @BindView(R.id.fl_layout)
     FrameLayout flLayout;
+    //常用功能
     @BindView(R.id.imageview)
     ImageView imageview;
     //ToolBar中需要显示隐藏的控件
+    //档案
     @BindView(R.id.mRl_Toll)
     RelativeLayout mRlToll;
-    @BindView(R.id.mTab)
-    TabLayout mTab;
+    @BindView(R.id.mIv_photo)
+    ImageView mIvPhoto;
     //搜索框
+    @BindView(R.id.mLl_Search)
+    LinearLayout mLlSearch;
     @BindView(R.id.mIv_Search)
     ImageView mIvSearch;
     @BindView(R.id.mEt_Search)
     EditText mEtSearch;
     @BindView(R.id.mIv_Clear)
     ImageView mIvClear;
-    @BindView(R.id.mLl_Search)
-    LinearLayout mLlSearch;
+    //问诊
+    @BindView(R.id.mRl_inquiry)
+    RelativeLayout mRlInquiry;
+    @BindView(R.id.mIv_quit)
+    ImageView mIvQuit;
+    @BindView(R.id.mIv_photograph)
+    ImageView mIvPhotograph;
+    @BindView(R.id.mIv_photoCircle)
+    ImageView mIvPhotoCircle;
 
     private FragmentManager manager;
     private ArrayList<BaseFragment> mList;
@@ -89,11 +98,15 @@ public class MainActivity extends BaseActivity<MainView, MainPre> implements Mai
     }
 
     @Override
-    public void initView() {
+    public void initView(Bundle savedInstanceState) {
         //绑定toolbar
         mTool.setTitle("");
         setSupportActionBar(mTool);
+        mTool.setBackground(getResources().getDrawable(R.drawable.tool_shape));
         StatusBarUtil.setLightMode(this);
+
+        //测试photo
+        ImageLoader.setCircleImage(this, R.drawable.ic_launcher_background, mIvPhotoCircle, R.drawable.ic_launcher_background);
 
         manager = getSupportFragmentManager();
 
@@ -122,15 +135,31 @@ public class MainActivity extends BaseActivity<MainView, MainPre> implements Mai
             public void onTabSelected(TabLayout.Tab tab) {
                 switch (tab.getPosition()) {
                     case 0:
+                        //问诊
+                        mRlInquiry.setVisibility(View.VISIBLE);
+                        mLlSearch.setVisibility(View.GONE);
+                        mRlToll.setVisibility(View.GONE);
+                        mTool.setBackground(getResources().getDrawable(R.drawable.tool_shape));
                         switchFragments(ENCYCLOPEDIA);
                         break;
                     case 1:
+                        //百科
+                        mRlInquiry.setVisibility(View.GONE);
+                        mLlSearch.setVisibility(View.VISIBLE);
+                        mRlToll.setVisibility(View.GONE);
+                        mTool.setBackgroundColor(getResources().getColor(R.color.white));
                         switchFragments(INQUIRY);
                         break;
                     case 2:
+                        //档案
+                        mRlInquiry.setVisibility(View.GONE);
+                        mLlSearch.setVisibility(View.GONE);
+                        mRlToll.setVisibility(View.VISIBLE);
+                        mTool.setBackgroundColor(getResources().getColor(R.color.white));
                         switchFragments(RECORD);
                         break;
                     case 3:
+                        //我的
                         String param = (String) SpUtil.getParam(Constants.TOKEN, "");
                         if (param.isEmpty()) {
                             switchFragments(MINE);
@@ -270,6 +299,13 @@ public class MainActivity extends BaseActivity<MainView, MainPre> implements Mai
         }
 
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 
     /**

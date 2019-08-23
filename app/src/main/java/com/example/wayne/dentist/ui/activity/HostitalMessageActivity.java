@@ -51,7 +51,7 @@ public class HostitalMessageActivity extends BaseActivity<HospitalMessageView, H
     }
 
     @Override
-    public void initView() {
+    public void initView(Bundle savedInstanceState) {
         mTool.setTitle("");
         setSupportActionBar(mTool);
         StatusBarUtil.setLightMode(this);

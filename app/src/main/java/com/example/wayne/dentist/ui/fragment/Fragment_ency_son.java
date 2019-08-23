@@ -100,7 +100,7 @@ public class Fragment_ency_son extends BaseFragment<EncyView_Son, EncyPre_Son> i
         final List<TabSonBean.DataBean> list = tabSonBean.getData();
 
         mIcon = new ArrayList<>();
-        mIcon.add(R.drawable.selector_upgrowth);
+        mIcon.add(R.drawable.selector_structure);
         mIcon.add(R.drawable.selector_upgrowth);
         mIcon.add(R.drawable.selector_teeth_clean);
         mIcon.add(R.drawable.selector_habit);

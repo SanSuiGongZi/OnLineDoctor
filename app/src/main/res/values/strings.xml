@@ -53,6 +53,11 @@
     <string name="location">无法获得地址</string>
     <string name="import_location">手动输入定位地址</string>
     <string name="localizer">定位</string>
+    <string name="selete_city">城市地区选择</string>
+    <string name="hotCity">热门城市</string>
+    <string name="select">请选择</string>
+    <string name="selectCity">城市/区域</string>
+    <string name="concreteness">具体地址</string>
     <string name="preconcentration" tools:ignore="TypographyDashes">已预选定保门诊,等待系统审核,预计1-2个工作日</string>
 
     <!--  Login模块 -->
@@ -113,5 +118,6 @@
     <string name="if_stopEat_yes">是</string>
     <string name="if_stopEat_no">否</string>
     <string name="result">感谢您的耐心配合，您很可能患有龋病（虫牙）。为进一步确诊，推荐您根据提示，使用识图自诊进一步确定病症，并在推荐阅读中了解相关内容</string>
+    <string name="Provinces">省市区选择</string>
 
 </resources>

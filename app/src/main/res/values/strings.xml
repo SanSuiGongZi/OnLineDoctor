@@ -58,6 +58,7 @@
     <string name="select">请选择</string>
     <string name="selectCity">城市/区域</string>
     <string name="concreteness">具体地址</string>
+    <string name="Provinces">省市区选择</string>
     <string name="preconcentration" tools:ignore="TypographyDashes">已预选定保门诊,等待系统审核,预计1-2个工作日</string>
 
     <!--  Login模块 -->
@@ -69,6 +70,12 @@
     <string name="retrievePassword">找回密码</string>
     <string name="setPassWord">密码</string>
     <string name="setAccount">手机号/邮箱</string>
+    <string name="login_hostital">登录家有牙医,体验更多功能</string>
+    <string name="setcode">获取验证码</string>
+    <string name="login_password">密码登录</string>
+    <string name="login_nopassword">免密码登录</string>
+    <string name="elseLogin">其他登录方式</string>
+    <string name="agreement">登录或注册即同意《家有牙医用户协议》、《隐私保密协议》</string>
 
     <!-- 设置模块 -->
     <string name="install">设置</string>
@@ -99,25 +106,89 @@
     <string name="cure_project">治疗项目</string>
     <string name="baidu">https://www.baidu.com</string>
 
-    <string name="login_hostital">登录家有牙医,体验更多功能</string>
-    <string name="setcode">获取验证码</string>
-    <string name="login_password">密码登录</string>
-    <string name="login_nopassword">免密码登录</string>
-    <string name="elseLogin">其他登录方式</string>
-    <string name="agreement">登录或注册即同意《家有牙医用户协议》、《隐私保密协议》</string>
-
     <!-- 问诊 -->
-    <string name="hello">嗨,我是您的私人医生,您感觉牙齿存在什么问题呢?或者有哪些不适呢?</string>
+    <string name="hello">嗨，我是您的私人医生，您感觉牙齿存在什么问题呢？或者有哪些不适呢？</string>
+    <string name="selete">选择您可能出现的牙齿问题</string>
     <string name="symptom_toothache">牙疼</string>
-    <string name="describe_symptom">是怎么样的牙疼呢?</string>
+    <string name="symptom_Bad_breath">口腔有异味</string>
+    <string name="symptom_bleeding">刷牙出血</string>
+    <string name="symptom_nigrities">牙齿颜色发黑</string>
+    <string name="describe_symptom">是怎么样的牙疼呢？</string>
+    <!-- 牙疼 -->
+    <!-- 吃东西时才会疼 -->
     <string name="describe_symptom_eat">吃东西时才会疼</string>
-    <string name="describe_symptom_eat_of">吃什么东西会感到牙疼呢?</string>
+    <string name="describe_symptom_eat_of">吃什么东西会感到牙疼呢？</string>
     <string name="describe_symptom_eat_cold">冷食或甜食</string>
     <string name="describe_symptom_eat_hot">热食</string>
-    <string name="if_stopEat">停止食用是否会得到缓解呢?</string>
+    <string name="if_stopEat">停止食用是否会得到缓解呢？</string>
     <string name="if_stopEat_yes">是</string>
     <string name="if_stopEat_no">否</string>
-    <string name="result">感谢您的耐心配合，您很可能患有龋病（虫牙）。为进一步确诊，推荐您根据提示，使用识图自诊进一步确定病症，并在推荐阅读中了解相关内容</string>
-    <string name="Provinces">省市区选择</string>
+    <string name="if_cold_water">冷水是否有助于缓解疼痛？</string>
+    <string name="degreeOrTime">持续时间和疼痛程度如何？</string>
+    <string name="shortTime">短，痛感轻微</string>
+    <string name="longTime">长，痛感明显</string>
+    <!-- 自发性疼痛 -->
+    <string name="describe_symptom_spontaneity">自发性疼痛</string>
+    <string name="ifTime">一般是什么时间会感觉到疼痛？</string>
+    <string name="daytime">白天</string>
+    <string name="night">夜间</string>
+    <string name="allDayLong">全天</string>
+    <string name="ifIntervalOrContinuity">是间接性的还是持续性的呢？</string>
+    <string name="interval">间歇性</string>
+    <string name="continuity">持续性</string>
+    <string name="isFeel">是怎么样的疼痛感觉呢？</string>
+    <string name="swellingPain">胀痛</string>
+    <string name="jumpingPain">跳痛</string>
+    <string name="PurePain">纯痛</string>
+    <string name="ifAggravate">咬牙时是否会出现或加重疼痛？</string>
+    <string name="ifLoose">是否出现牙齿松动？</string>
+
+    <!-- 刷牙出血 -->
+    <string name="hemorrhage">会经常出血吗？</string>
+    <string name="yes_hemorrhage">是的，经常出血</string>
+    <string name="no_hemorrhage">不，只是偶尔轻微出血</string>
+    <string name="isStophemorrhage">漱口后是否会停止出血？</string>
+    <string name="meet">会</string>
+    <string name="incapable">不会</string>
+    <string name="isIncapable">不会，涑口后仍有少量出血,过一会才能停止</string>
+    <string name="isEat_hemorrhage">吃东西，比如啃苹果时是否会出血？</string>
+    <string name="isSpontaneity_hemorrhage">平时是否会自发性渗血？</string>
+    <string name="isFeel_ache">牙龈是否会感到肿胀疼痛？</string>
+    <string name="ifLess">牙齿有没有松动？</string>
+    <string name="isToothwash_time">上一次洗牙是多久以前了？</string>
+    <string name="halfAyear">不到半年</string>
+    <string name="twoYear">不到两年</string>
+    <string name="twoYearOrBefore">两年甚至更久以前</string>
+    <string name="never">从未洗过牙</string>
+    <!-- 口腔有异味 -->
+    <string name="peculiar">会经常有异味吗？</string>
+    <string name="yes_peculiar">是的，经常有异味</string>
+    <string name="no_peculiar">不，偶尔有异味</string>
+    <string name="isHemorrhage">刷牙会经常出血吗？</string>
+    <string name="iscause">能否排除肠胃问题等其他身体原因？</string>
+    <string name="yes">能</string>
+    <string name="noS">不确定</string>
+    <!-- 牙齿颜色发黑 -->
+    <string name="habit">是否长期有喝茶、吸烟、喝咖啡等习惯？</string>
+    <string name="yes_habit">有</string>
+    <string name="no_habit">没有</string>
+    <string name="isToothwash">有没有定期洗牙？</string>
+    <string name="isRecover">洗牙后是否可以恢复？</string>
+
+    <!-- 结论 -->
+    <string name="decayed_tooth">感谢您的耐心配合，您很可能患有龋病(虫牙)。为进一步确诊，推荐您根据提示，使用识图自诊进一步确定病症，并在推荐阅读中了解相关内容。</string>
+    <string name="pulpitis">感谢您的耐心配合，您很可能患有牙髓炎。为进一步确诊，推荐您根据提示，使用识图自诊进一步确定病症，并在推荐阅读中了解相关内容。</string>
+    <string name="pulpitis_unite">感谢您的耐心配合，您很可能患有牙周牙髓联合病变。为进一步确诊，推荐您根据提示，使用识图自诊进一步确定病症，并在推荐阅读中了解相关内容。</string>
+    <string name="apicitis">感谢您的耐心配合，您很可能患有根尖炎。为进一步确诊，推荐您根据提示，使用识图自诊进一步确定病症，并在推荐阅读中了解相关内容。</string>
+    <string name="maybe">感谢您的耐心配合，您很可能患有牙龈炎或牙周炎。为进一步确诊，推荐您根据提示，使用识图自诊进一步确定病症，并在推荐阅读中了解相关内容。</string>
+    <string name="periodontitis">感谢您的耐心配合，您很可能患有牙周炎。为进一步确诊，推荐您根据提示，使用识图自诊进一步确定病症，并在推荐阅读中了解相关内容。</string>
+    <string name="gingivitis">感谢您的耐心配合，您很可能患有牙龈炎。为进一步确诊，推荐您根据提示，使用识图自诊进一步确定病症，并在推荐阅读中了解相关内容。</string>
+    <string name="defect">感谢您的耐心配合，您很可能患有内源性染色或牙体缺损。为进一步确诊，推荐您根据提示，使用识图自诊进一步确定病症，并在推荐阅读中了解相关内容。</string>
+    <string name="ExtrinsicStaining">感谢您的耐心配合，您很可能患有外源性染色。为进一步确诊，推荐您根据提示，使用识图自诊进一步确定病症，并在推荐阅读中了解相关内容。</string>
+    <string name="GeneralMap">识图自诊</string>
+    <string name="reading">推荐阅读</string>
+    <string name="hintUser">您的此次问诊已被记录并归入档案，您可以在数字病历中查询，或者开始新的问诊。</string>
+    <string name="Number_of_cases">数字病例</string>
+    <string name="newInquiry">新的问诊</string>
 
 </resources>

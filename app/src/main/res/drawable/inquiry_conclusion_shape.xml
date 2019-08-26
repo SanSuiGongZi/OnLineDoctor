@@ -6,14 +6,14 @@
 
     <padding
         android:bottom="@dimen/dp_20"
-        android:left="@dimen/dp_10"
-        android:right="@dimen/dp_10"
+        android:left="@dimen/dp_30"
+        android:right="@dimen/dp_30"
         android:top="@dimen/dp_20" />
 
-    <solid android:color="@color/c_CBCBCB" />
+    <solid android:color="@color/white" />
 
     <stroke
-        android:width="@dimen/dp_2"
-        android:color="@color/blue" />
+        android:width="@dimen/dp_1"
+        android:color="@color/c_B7D9FF" />
 
 </shape>

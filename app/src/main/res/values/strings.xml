@@ -142,7 +142,6 @@
     <string name="PurePain">纯痛</string>
     <string name="ifAggravate">咬牙时是否会出现或加重疼痛？</string>
     <string name="ifLoose">是否出现牙齿松动？</string>
-
     <!-- 刷牙出血 -->
     <string name="hemorrhage">会经常出血吗？</string>
     <string name="yes_hemorrhage">是的，经常出血</string>
@@ -161,7 +160,7 @@
     <string name="twoYearOrBefore">两年甚至更久以前</string>
     <string name="never">从未洗过牙</string>
     <!-- 口腔有异味 -->
-    <string name="peculiar">会经常有异味吗？</string>
+    <string name="peculiar">经常会有异味吗？</string>
     <string name="yes_peculiar">是的，经常有异味</string>
     <string name="no_peculiar">不，偶尔有异味</string>
     <string name="isHemorrhage">刷牙会经常出血吗？</string>
@@ -174,7 +173,6 @@
     <string name="no_habit">没有</string>
     <string name="isToothwash">有没有定期洗牙？</string>
     <string name="isRecover">洗牙后是否可以恢复？</string>
-
     <!-- 结论 -->
     <string name="decayed_tooth">感谢您的耐心配合，您很可能患有龋病(虫牙)。为进一步确诊，推荐您根据提示，使用识图自诊进一步确定病症，并在推荐阅读中了解相关内容。</string>
     <string name="pulpitis">感谢您的耐心配合，您很可能患有牙髓炎。为进一步确诊，推荐您根据提示，使用识图自诊进一步确定病症，并在推荐阅读中了解相关内容。</string>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_15"
+        android:background="@drawable/item_pop"
+        android:orientation="vertical">
+
+        <com.example.wayne.dentist.widget.MediumTextView
+            android:id="@+id/mTv_popName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/c_4A4A4A"
+            android:textSize="@dimen/dp_13" />
+
+        <TextView
+            android:id="@+id/mTv_popDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_15"
+            android:textColor="@color/c_4A4A4A"
+            android:textSize="@dimen/dp_13" />
+
+    </LinearLayout>
+
+</RelativeLayout>

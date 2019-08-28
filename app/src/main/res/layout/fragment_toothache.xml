@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.fragment.inquiry_package.ToothacheFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <!-- 第二问 -->
+    <RelativeLayout
+        android:id="@+id/mIsTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_15"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_photo_issue"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_35"
+            android:layout_marginTop="@dimen/dp_10"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/goto_a_doctor" />
+
+        <TextView
+            android:id="@+id/mTv_issue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_issue"
+            android:background="@drawable/inquiry_issue_shape"
+            android:text="@string/describe_symptom"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dp_13" />
+
+        <TextView
+            android:id="@+id/mTv_feed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mTv_issue"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_toRightOf="@id/iv_photo_issue"
+            android:background="@drawable/inquiry_no_shape"
+            android:text="@string/describe_symptom_eat"
+            android:textColor="@color/c_1DB5FF"
+            android:textSize="@dimen/dp_13" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mTv_feed"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_toRightOf="@id/iv_photo_issue"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/mTv_spontaneity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/inquiry_no_shape"
+                android:text="@string/describe_symptom_spontaneity"
+                android:textColor="@color/c_1DB5FF"
+                android:textSize="@dimen/dp_13" />
+
+            <ImageView
+                android:id="@+id/mIv_spontaneity_back"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:layout_margin="@dimen/dp_8"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/mll_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_20"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/mIv_eat_back"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_margin="@dimen/dp_8"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mTv_is"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/inquiry_yes_shape"
+            android:text="@string/describe_symptom_eat"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_13"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- 第三问 -->
+    <RelativeLayout
+        android:id="@+id/mIsThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_15"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_photo_eat"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_35"
+            android:layout_marginTop="@dimen/dp_10"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/goto_a_doctor" />
+
+        <TextView
+            android:id="@+id/mTv_eat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_eat"
+            android:background="@drawable/inquiry_issue_shape"
+            android:text="@string/describe_symptom_eat_of"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dp_13" />
+
+        <TextView
+            android:id="@+id/mTv_cold_sweet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mTv_eat"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_eat"
+            android:background="@drawable/inquiry_no_shape"
+            android:text="@string/describe_symptom_eat_cold"
+            android:textColor="@color/c_1DB5FF"
+            android:textSize="@dimen/dp_13" />
+
+        <TextView
+            android:id="@+id/mTv_hotFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mTv_cold_sweet"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_eat"
+            android:background="@drawable/inquiry_no_shape"
+            android:text="@string/describe_symptom_eat_hot"
+            android:textColor="@color/c_1DB5FF"
+            android:textSize="@dimen/dp_13" />
+
+        <TextView
+            android:id="@+id/mTv_allDayLong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mTv_hotFood"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_eat"
+            android:background="@drawable/inquiry_no_shape"
+            android:text="@string/allDayLong"
+            android:textColor="@color/c_1DB5FF"
+            android:textSize="@dimen/dp_13"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/mll_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_20"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/mIv_eatFood_back"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_margin="@dimen/dp_8"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mTv_eatFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/inquiry_yes_shape"
+            android:text="@string/describe_symptom_eat_hot"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_13"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- 第四问 -->
+    <RelativeLayout
+        android:id="@+id/mIsFour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_15"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_photo_stopEat"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_35"
+            android:layout_marginTop="@dimen/dp_10"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/goto_a_doctor" />
+
+        <TextView
+            android:id="@+id/mTv_stopEat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_stopEat"
+            android:background="@drawable/inquiry_issue_shape"
+            android:text="@string/if_stopEat"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dp_13" />
+
+        <TextView
+            android:id="@+id/mTv_stopEat_yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mTv_stopEat"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_stopEat"
+            android:background="@drawable/inquiry_no_shape"
+            android:text="@string/if_stopEat_yes"
+            android:textColor="@color/c_1DB5FF"
+            android:textSize="@dimen/dp_13" />
+
+        <TextView
+            android:id="@+id/mTv_stopEat_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mTv_stopEat_yes"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_stopEat"
+            android:background="@drawable/inquiry_no_shape"
+            android:text="@string/if_stopEat_no"
+            android:textColor="@color/c_1DB5FF"
+            android:textSize="@dimen/dp_13" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/mll_four"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_20"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/mIv_stopEat_back"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_margin="@dimen/dp_8"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mTv_IsEat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/inquiry_yes_shape"
+            android:text="@string/if_stopEat_yes"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_13"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- 第五问 -->
+    <RelativeLayout
+        android:id="@+id/mIsFive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_15"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_photo_IsStopEat"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_35"
+            android:layout_marginTop="@dimen/dp_10"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/goto_a_doctor" />
+
+        <TextView
+            android:id="@+id/mTv_IsStopEat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_IsStopEat"
+            android:background="@drawable/inquiry_issue_shape"
+            android:text="@string/if_cold_water"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dp_13" />
+
+        <TextView
+            android:id="@+id/mTv_IsStopEat_yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mTv_IsStopEat"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_IsStopEat"
+            android:background="@drawable/inquiry_no_shape"
+            android:text="@string/if_stopEat_yes"
+            android:textColor="@color/c_1DB5FF"
+            android:textSize="@dimen/dp_13" />
+
+        <TextView
+            android:id="@+id/mTv_IsStopEat_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mTv_IsStopEat_yes"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_IsStopEat"
+            android:background="@drawable/inquiry_no_shape"
+            android:text="@string/if_stopEat_no"
+            android:textColor="@color/c_1DB5FF"
+            android:textSize="@dimen/dp_13" />
+
+        <TextView
+            android:id="@+id/mTv_PurePain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mTv_IsStopEat_no"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_IsStopEat"
+            android:background="@drawable/inquiry_no_shape"
+            android:text="@string/PurePain"
+            android:textColor="@color/c_1DB5FF"
+            android:textSize="@dimen/dp_13"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/mll_five"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_20"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/mIv_IsStopEat_back"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_margin="@dimen/dp_8"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mTv_IfEat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/inquiry_yes_shape"
+            android:text="@string/if_stopEat_yes"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_13"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- 第六问 -->
+    <RelativeLayout
+        android:id="@+id/mIsSix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_15"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_photo_ifAggravate"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_35"
+            android:layout_marginTop="@dimen/dp_10"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/goto_a_doctor" />
+
+        <TextView
+            android:id="@+id/mTv_ifAggravate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_ifAggravate"
+            android:background="@drawable/inquiry_issue_shape"
+            android:text="@string/ifAggravate"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dp_13" />
+
+        <TextView
+            android:id="@+id/mTv_ifAggravate_yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mTv_ifAggravate"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_ifAggravate"
+            android:background="@drawable/inquiry_no_shape"
+            android:text="@string/if_stopEat_yes"
+            android:textColor="@color/c_1DB5FF"
+            android:textSize="@dimen/dp_13" />
+
+        <TextView
+            android:id="@+id/mTv_ifAggravate_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mTv_ifAggravate_yes"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_ifAggravate"
+            android:background="@drawable/inquiry_no_shape"
+            android:text="@string/if_stopEat_no"
+            android:textColor="@color/c_1DB5FF"
+            android:textSize="@dimen/dp_13" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/mll_sex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_20"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/mIv_ifAggravatet_back"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_margin="@dimen/dp_8"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mTv_ifAggravatet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/inquiry_yes_shape"
+            android:text="@string/if_stopEat_yes"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_13"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- 第七问 -->
+    <RelativeLayout
+        android:id="@+id/mIsSeven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_15"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_photo_ifLoose"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_35"
+            android:layout_marginTop="@dimen/dp_10"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/goto_a_doctor" />
+
+        <TextView
+            android:id="@+id/mTv_ifLoose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_ifLoose"
+            android:background="@drawable/inquiry_issue_shape"
+            android:text="@string/ifLoose"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dp_13" />
+
+        <TextView
+            android:id="@+id/mTv_ifLoose_yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mTv_ifLoose"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_ifLoose"
+            android:background="@drawable/inquiry_no_shape"
+            android:text="@string/if_stopEat_yes"
+            android:textColor="@color/c_1DB5FF"
+            android:textSize="@dimen/dp_13" />
+
+        <TextView
+            android:id="@+id/mTv_ifLoose_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mTv_ifLoose_yes"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_photo_ifLoose"
+            android:background="@drawable/inquiry_no_shape"
+            android:text="@string/if_stopEat_no"
+            android:textColor="@color/c_1DB5FF"
+            android:textSize="@dimen/dp_13" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/mll_seven"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_20"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/mIv_ifLoose_back"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_margin="@dimen/dp_8"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mTv_isLoose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/inquiry_yes_shape"
+            android:text="@string/if_stopEat_yes"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_13"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- 结论 -->
+    <RelativeLayout
+        android:id="@+id/mIsResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_15"
+        android:background="@drawable/inquiry_conclusion_shape"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/mTv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:text="@string/decayed_tooth"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dp_12" />
+
+        <Button
+            android:id="@+id/mBtn_GeneralMap"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_37"
+            android:layout_below="@id/mTv_result"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/button_inquiry_shape"
+            android:text="@string/GeneralMap"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/mBtn_reading"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_37"
+            android:layout_below="@id/mTv_result"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/mBtn_GeneralMap"
+            android:background="@drawable/button_inquiry_shape"
+            android:text="@string/reading"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mBtn_GeneralMap"
+            android:layout_marginTop="@dimen/dp_10"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:text="@string/hintUser"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dp_12" />
+
+        <Button
+            android:id="@+id/mBtn_of_cases"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_37"
+            android:layout_below="@id/tv_hint"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/button_inquiry_shape"
+            android:text="@string/Number_of_cases"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/mBtn_newInquiry"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_37"
+            android:layout_below="@id/tv_hint"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/mBtn_GeneralMap"
+            android:background="@drawable/button_inquiry_shape"
+            android:text="@string/newInquiry"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+</LinearLayout>

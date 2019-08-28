@@ -1,13 +1,20 @@
 package com.example.wayne.dentist.ui.fragment;
 
 
+import android.app.ActionBar;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -21,6 +28,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+
+import static android.support.constraint.Constraints.TAG;
 
 
 /**
@@ -165,6 +174,7 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
     private String mEat;
     private String mFeel;
     private String mHotFood;
+    private String mPeculiar;
 
     public Inquiry() {
         // Required empty public constructor
@@ -268,6 +278,15 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 mTvFeed.setVisibility(View.GONE);
                 mTvSpontaneity.setVisibility(View.GONE);
                 mIvSpontaneityBack.setVisibility(View.GONE);
+                //隐藏返回按钮
+                if (mFeel.equals(getResources().getString(R.string.symptom_Bad_breath))) {
+
+                    mIvInquiryBack.setVisibility(View.GONE);
+                    mIvPeculiarBack.setVisibility(View.GONE);
+
+                } else {
+                    mIvNigritiesBack.setVisibility(View.GONE);
+                }
 
                 //赋值
                 if (mFeel.equals(getResources().getText(R.string.symptom_toothache))) {
@@ -291,13 +310,14 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                     mTvColdSweet.setText(getResources().getText(R.string.meet));
                     mTvHotFood.setText(getResources().getText(R.string.isIncapable));
 
-                } else {
+                } else if (mFeel.equals(getResources().getText(R.string.symptom_nigrities))){
                     mTvAllDayLong.setVisibility(View.GONE);
                     mTvIs.setText(getResources().getText(R.string.yes_habit));
                     mTvEat.setText(getResources().getText(R.string.isToothwash));
                     mTvColdSweet.setText(getResources().getText(R.string.yes_habit));
                     mTvHotFood.setText(getResources().getText(R.string.no_habit));
                 }
+
                 //显示选项内容
                 mTvIs.setVisibility(View.VISIBLE);
                 mIvEatBack.setVisibility(View.VISIBLE);
@@ -312,6 +332,14 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 mTvFeed.setVisibility(View.GONE);
                 mTvSpontaneity.setVisibility(View.GONE);
                 mIvSpontaneityBack.setVisibility(View.GONE);
+                //隐藏返回按钮
+                if (mFeel.equals(getResources().getString(R.string.symptom_Bad_breath))) {
+
+                    mIvInquiryBack.setVisibility(View.GONE);
+                    mIvPeculiarBack.setVisibility(View.GONE);
+                } else {
+                    mIvNigritiesBack.setVisibility(View.GONE);
+                }
 
                 //赋值
                 if (mFeel.equals(getResources().getText(R.string.symptom_toothache))) {
@@ -336,7 +364,7 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                     mTvColdSweet.setText(getResources().getText(R.string.meet));
                     mTvHotFood.setText(getResources().getText(R.string.incapable));
 
-                } else {
+                } else if (mFeel.equals(getResources().getText(R.string.symptom_nigrities))){
                     mTvAllDayLong.setVisibility(View.GONE);
                     mTvIs.setText(getResources().getText(R.string.no_habit));
                     mTvEat.setText(getResources().getText(R.string.isToothwash));
@@ -360,6 +388,10 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 mTvHotFood.setVisibility(View.GONE);
                 mTvAllDayLong.setVisibility(View.GONE);
                 mHotFood = mTvColdSweet.getText().toString();
+
+                //隐藏返回按钮
+                mIvEatBack.setVisibility(View.GONE);
+
                 //赋值
                 if (mHotFood.equals(getResources().getText(R.string.describe_symptom_eat_cold))) {
                     mTvEatFood.setText(getResources().getText(R.string.describe_symptom_eat_cold));
@@ -400,6 +432,10 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 mTvHotFood.setVisibility(View.GONE);
                 mTvAllDayLong.setVisibility(View.GONE);
                 mHotFood = mTvHotFood.getText().toString();
+
+                //隐藏返回按钮
+                mIvEatBack.setVisibility(View.GONE);
+
                 //赋值
                 if (mHotFood.equals(getResources().getText(R.string.describe_symptom_eat_hot))) {
                     mTvEatFood.setText(getResources().getText(R.string.describe_symptom_eat_hot));
@@ -449,6 +485,9 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 mTvHotFood.setVisibility(View.GONE);
                 mTvAllDayLong.setVisibility(View.GONE);
 
+                //隐藏返回按钮
+                mIvEatBack.setVisibility(View.VISIBLE);
+
                 String dayFood = mTvAllDayLong.getText().toString();
                 if (dayFood.equals(getResources().getText(R.string.allDayLong))) {
                     mTvEatFood.setText(getResources().getText(R.string.allDayLong));
@@ -470,6 +509,10 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 //隐藏该问题选项
                 mTvStopEatYes.setVisibility(View.GONE);
                 mTvStopEatNo.setVisibility(View.GONE);
+
+                //隐藏返回按钮
+                mIvEatFoodBack.setVisibility(View.GONE);
+
                 //赋值
                 //显示结论
                 //龋病(虫牙)
@@ -496,7 +539,7 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
 
                 } else if (mString.equals(getResources().getText(R.string.yes_hemorrhage))) {
 
-                    if (mTvEatFood.getText().toString().equals(getResources().getText(R.string.isIncapable))) {
+                    if (mEat.equals(getResources().getText(R.string.isIncapable))) {
                         mTvIsEat.setText(getResources().getText(R.string.meet));
                         mTvIsStopEat.setText(getResources().getText(R.string.isSpontaneity_hemorrhage));
                         mTvPurePain.setVisibility(View.GONE);
@@ -533,9 +576,8 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                     mIsSix.setVisibility(View.GONE);
                     mIsSeven.setVisibility(View.GONE);
 
-                } else if (mString.equals(getResources().getText(R.string.yes_habit))) {
+                } else {
                     mTvIsEat.setText(getResources().getText(R.string.if_stopEat_yes));
-                    mTvIsStopEat.setText(getResources().getText(R.string.isToothwash_time));
 
                     mTvPurePain.setVisibility(View.GONE);
                     mTvNever.setVisibility(View.GONE);
@@ -556,8 +598,11 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 //隐藏该问题选项
                 mTvStopEatYes.setVisibility(View.GONE);
                 mTvStopEatNo.setVisibility(View.GONE);
-                //赋值
 
+                //隐藏返回按钮
+                mIvEatFoodBack.setVisibility(View.GONE);
+
+                //赋值
                 //显示下一个问题
                 if (mString.equals(getResources().getText(R.string.describe_symptom_eat))) {
 
@@ -614,9 +659,8 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                     mTvPurePain.setVisibility(View.VISIBLE);
                     mTvNever.setVisibility(View.VISIBLE);
 
-                } else if (mString.equals(getResources().getText(R.string.yes_habit))) {
+                } else  {
                     mTvIsEat.setText(getResources().getText(R.string.if_stopEat_no));
-                    mTvIsStopEat.setText(getResources().getText(R.string.isToothwash_time));
 
                     mTvPurePain.setVisibility(View.GONE);
                     mTvNever.setVisibility(View.GONE);
@@ -631,11 +675,7 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 //显示选项内容
                 mTvIsEat.setVisibility(View.VISIBLE);
                 mIvStopEatBack.setVisibility(View.VISIBLE);
-                if (!mString.equals(getResources().getText(R.string.yes_habit))) {
-                    mIsFive.setVisibility(View.VISIBLE);
-                    mIsSix.setVisibility(View.GONE);
-                    mIsSeven.setVisibility(View.GONE);
-                }
+
                 break;
 
             //--------------------------------------- 五问 -----------------------------------------------
@@ -646,6 +686,9 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 mTvIsStopEatNo.setVisibility(View.GONE);
                 mTvPurePain.setVisibility(View.GONE);
                 mTvNever.setVisibility(View.GONE);
+
+                //隐藏返回按钮
+                mIvStopEatBack.setVisibility(View.GONE);
 
                 //赋值
                 if (mString.equals(getResources().getText(R.string.describe_symptom_eat))) {
@@ -721,6 +764,9 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 mTvIsStopEatNo.setVisibility(View.GONE);
                 mTvPurePain.setVisibility(View.GONE);
                 mTvNever.setVisibility(View.GONE);
+
+                //隐藏返回按钮
+                mIvStopEatBack.setVisibility(View.GONE);
 
                 //赋值
                 if (mString.equals(getResources().getText(R.string.describe_symptom_eat))) {
@@ -798,6 +844,9 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 mTvPurePain.setVisibility(View.GONE);
                 mTvNever.setVisibility(View.GONE);
 
+                //隐藏返回按钮
+                mIvStopEatBack.setVisibility(View.GONE);
+
                 if (mString.equals(getResources().getText(R.string.describe_symptom_spontaneity))) {
 
                     mTvIfEat.setText(getResources().getText(R.string.PurePain));
@@ -839,6 +888,9 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 mTvPurePain.setVisibility(View.GONE);
                 mTvNever.setVisibility(View.GONE);
 
+                //隐藏返回按钮
+                mIvStopEatBack.setVisibility(View.GONE);
+
                 mTvIfEat.setText(getResources().getText(R.string.never));
                 mTvIfEat.setVisibility(View.VISIBLE);
                 mIvIsStopEatBack.setVisibility(View.VISIBLE);
@@ -855,6 +907,9 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 //第六个问题(第一个选项)
                 mTvIfAggravateYes.setVisibility(View.GONE);
                 mTvIfAggravateNo.setVisibility(View.GONE);
+
+                //隐藏返回按钮
+                mIvIsStopEatBack.setVisibility(View.GONE);
 
                 if (mString.equals(getResources().getText(R.string.describe_symptom_spontaneity))) {
 
@@ -883,6 +938,9 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 //第六个问题(第二个选项)
                 mTvIfAggravateYes.setVisibility(View.GONE);
                 mTvIfAggravateNo.setVisibility(View.GONE);
+
+                //隐藏返回按钮
+                mIvIsStopEatBack.setVisibility(View.GONE);
 
                 if (mString.equals(getResources().getText(R.string.describe_symptom_spontaneity))) {
 
@@ -914,6 +972,9 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 mTvIfLooseYes.setVisibility(View.GONE);
                 mTvIfLooseNo.setVisibility(View.GONE);
 
+                //隐藏返回按钮
+                mIvIfAggravatetBack.setVisibility(View.GONE);
+
                 if (mString.equals(getResources().getText(R.string.describe_symptom_spontaneity))) {
 
                     mTvIsLoose.setText(getResources().getText(R.string.if_stopEat_yes));
@@ -937,6 +998,9 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 //第七个问题(第二个选项)
                 mTvIfLooseYes.setVisibility(View.GONE);
                 mTvIfLooseNo.setVisibility(View.GONE);
+
+                //隐藏返回按钮
+                mIvIfAggravatetBack.setVisibility(View.GONE);
 
                 if (mString.equals(getResources().getText(R.string.describe_symptom_spontaneity))) {
 
@@ -964,19 +1028,29 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 //特殊问题答案一
                 mTvPeculiarYes.setVisibility(View.GONE);
                 mTvPeculiarNo.setVisibility(View.GONE);
-                mTvIsPeculiar.setText(mTvPeculiarNo.getText().toString());
+                mTvIsPeculiar.setText(mTvPeculiarYes.getText().toString());
                 mIsInquiry.setVisibility(View.VISIBLE);
                 mTvIsPeculiar.setVisibility(View.VISIBLE);
                 mIvPeculiarBack.setVisibility(View.VISIBLE);
+
+                //隐藏返回按钮
+                mIvNigritiesBack.setVisibility(View.GONE);
+
+                mPeculiar = mTvIsPeculiar.getText().toString();
 
                 break;
             case R.id.mTv_Peculiar_no:
                 //特殊问题答案二
                 mTvPeculiarYes.setVisibility(View.GONE);
                 mTvPeculiarNo.setVisibility(View.GONE);
-                mTvIsPeculiar.setText(mTvPeculiarYes.getText().toString());
+                mTvIsPeculiar.setText(mTvPeculiarNo.getText().toString());
                 mTvIsPeculiar.setVisibility(View.VISIBLE);
                 mIvPeculiarBack.setVisibility(View.VISIBLE);
+
+                //隐藏返回按钮
+                mIvNigritiesBack.setVisibility(View.GONE);
+
+                mPeculiar = mTvIsPeculiar.getText().toString();
 
                 mTvIssue.setText(getResources().getText(R.string.isHemorrhage));
                 mTvFeed.setText(getResources().getText(R.string.yes_hemorrhage));
@@ -992,6 +1066,9 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 mTvIsInquiry.setVisibility(View.VISIBLE);
                 mIvInquiryBack.setVisibility(View.VISIBLE);
 
+                //隐藏返回按钮
+                mIvPeculiarBack.setVisibility(View.GONE);
+
                 mTvIssue.setText(getResources().getText(R.string.isHemorrhage));
                 mTvFeed.setText(getResources().getText(R.string.yes_hemorrhage));
                 mTvSpontaneity.setText(getResources().getText(R.string.no_hemorrhage));
@@ -1006,12 +1083,10 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 mTvIsInquiry.setText(mTvInquiryNo.getText().toString());
                 mTvIsInquiry.setVisibility(View.VISIBLE);
                 mIvInquiryBack.setVisibility(View.VISIBLE);
-                break;
-            case R.id.mIv_nigrities_hint:
-                //牙齿颜色变黑解释
-                break;
-            case R.id.mIv_spontaneity_back:
-                //选项二介绍
+
+                //隐藏返回按钮
+                mIvPeculiarBack.setVisibility(View.GONE);
+
                 break;
             case R.id.mIv_nigrities_back:
                 //返回牙齿问题选择
@@ -1021,18 +1096,47 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 mIvNigritiesBack.setVisibility(View.GONE);
                 mTvIsIllness.setVisibility(View.GONE);
                 mIsTwo.setVisibility(View.GONE);
+                mIsPeculiar.setVisibility(View.GONE);
                 break;
 
             case R.id.mIv_eat_back:
                 //重新选择(选项二问题)
                 mIsTwo.setVisibility(View.VISIBLE);
-                mIvSpontaneityBack.setVisibility(View.GONE);
+                mTvFeed.setVisibility(View.VISIBLE);
+                mTvSpontaneity.setVisibility(View.VISIBLE);
+                mIvSpontaneityBack.setVisibility(View.VISIBLE);
+
+                if (mFeel.equals(getResources().getString(R.string.symptom_Bad_breath))) {
+                    Log.e(TAG, "onViewClicked: "+mPeculiar);
+                    if (mPeculiar.equals(getResources().getString(R.string.yes_peculiar))) {
+                        mIvInquiryBack.setVisibility(View.VISIBLE);
+                    } else {
+                        mIvPeculiarBack.setVisibility(View.VISIBLE);
+                        mIvInquiryBack.setVisibility(View.GONE);
+                    }
+                } else {
+                    mIvNigritiesBack.setVisibility(View.VISIBLE);
+                }
+
+                mIvEatBack.setVisibility(View.GONE);
                 mTvIs.setVisibility(View.GONE);
                 mIsThree.setVisibility(View.GONE);
                 break;
             case R.id.mIv_eatFood_back:
                 //重新选择(第三个问题)
                 mIsThree.setVisibility(View.VISIBLE);
+                mTvColdSweet.setVisibility(View.VISIBLE);
+                mTvHotFood.setVisibility(View.VISIBLE);
+                mTvAllDayLong.setVisibility(View.VISIBLE);
+
+                if (mString.equals(getResources().getText(R.string.describe_symptom_spontaneity))) {
+                    mTvAllDayLong.setVisibility(View.VISIBLE);
+                } else {
+                    mTvAllDayLong.setVisibility(View.GONE);
+                }
+
+                mIvEatBack.setVisibility(View.VISIBLE);
+
                 mIvEatFoodBack.setVisibility(View.GONE);
                 mTvEatFood.setVisibility(View.GONE);
                 mIsFour.setVisibility(View.GONE);
@@ -1041,6 +1145,11 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
             case R.id.mIv_stopEat_back:
                 //重新选择(第四个问题)
                 mIsFour.setVisibility(View.VISIBLE);
+                mTvStopEatYes.setVisibility(View.VISIBLE);
+                mTvStopEatNo.setVisibility(View.VISIBLE);
+
+                mIvEatFoodBack.setVisibility(View.VISIBLE);
+
                 mIvStopEatBack.setVisibility(View.GONE);
                 mTvIsEat.setVisibility(View.GONE);
                 mIsFive.setVisibility(View.GONE);
@@ -1049,6 +1158,34 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
             case R.id.mIv_IsStopEat_back:
                 //第五个问题(返回选项)
                 mIsFive.setVisibility(View.VISIBLE);
+                mTvIsStopEatYes.setVisibility(View.VISIBLE);
+                mTvIsStopEatNo.setVisibility(View.VISIBLE);
+                if (mString.equals(getResources().getText(R.string.describe_symptom_spontaneity))) {
+                    mTvPurePain.setVisibility(View.VISIBLE);
+                    mTvNever.setVisibility(View.GONE);
+
+                } else if (mString.equals(getResources().getText(R.string.yes_hemorrhage))) {
+
+                    if (mEat.equals(getResources().getText(R.string.isIncapable))) {
+                        mTvPurePain.setVisibility(View.GONE);
+                        mTvNever.setVisibility(View.GONE);
+                    } else {
+                        mTvPurePain.setVisibility(View.VISIBLE);
+                        mTvNever.setVisibility(View.VISIBLE);
+                    }
+
+                } else if (mString.equals(getResources().getText(R.string.no_hemorrhage))) {
+
+                    mTvPurePain.setVisibility(View.VISIBLE);
+                    mTvNever.setVisibility(View.VISIBLE);
+
+                } else {
+                    mTvPurePain.setVisibility(View.GONE);
+                    mTvNever.setVisibility(View.GONE);
+                }
+
+                mIvStopEatBack.setVisibility(View.VISIBLE);
+
                 mIvIsStopEatBack.setVisibility(View.GONE);
                 mTvIfEat.setVisibility(View.GONE);
                 mIsSix.setVisibility(View.GONE);
@@ -1057,6 +1194,11 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
             case R.id.mIv_ifAggravatet_back:
                 //第六个问题(返回选项)
                 mIsSix.setVisibility(View.VISIBLE);
+                mTvIfAggravateYes.setVisibility(View.VISIBLE);
+                mTvIfAggravateNo.setVisibility(View.VISIBLE);
+
+                mIvIsStopEatBack.setVisibility(View.VISIBLE);
+
                 mIvIfAggravatetBack.setVisibility(View.GONE);
                 mTvIfAggravatet.setVisibility(View.GONE);
                 mIsSeven.setVisibility(View.GONE);
@@ -1065,6 +1207,11 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
             case R.id.mIv_ifLoose_back:
                 //第七个问题(返回选项)
                 mIsSeven.setVisibility(View.VISIBLE);
+                mTvIfLooseYes.setVisibility(View.VISIBLE);
+                mTvIfLooseNo.setVisibility(View.VISIBLE);
+
+                mIvIfAggravatetBack.setVisibility(View.VISIBLE);
+
                 mIvIfLooseBack.setVisibility(View.GONE);
                 mTvIsLoose.setVisibility(View.GONE);
                 mIsResult.setVisibility(View.GONE);
@@ -1072,6 +1219,11 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
             case R.id.mIv_Peculiar_back:
                 //特殊问题返回
                 mIsPeculiar.setVisibility(View.VISIBLE);
+                mTvPeculiarYes.setVisibility(View.VISIBLE);
+                mTvPeculiarNo.setVisibility(View.VISIBLE);
+
+                mIvNigritiesBack.setVisibility(View.VISIBLE);
+
                 mIvPeculiarBack.setVisibility(View.GONE);
                 mTvIsPeculiar.setVisibility(View.GONE);
                 mIsInquiry.setVisibility(View.GONE);
@@ -1080,9 +1232,22 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
             case R.id.mIv_Inquiry_back:
                 //特殊问题二返回
                 mIsInquiry.setVisibility(View.VISIBLE);
+                mTvInquiryYes.setVisibility(View.VISIBLE);
+                mTvInquiryNo.setVisibility(View.VISIBLE);
+
+                mIvPeculiarBack.setVisibility(View.VISIBLE);
+
                 mIvInquiryBack.setVisibility(View.GONE);
                 mTvIsInquiry.setVisibility(View.GONE);
                 mIsTwo.setVisibility(View.GONE);
+                break;
+            case R.id.mIv_nigrities_hint:
+                //牙齿颜色变黑解释
+                initPop(1);
+                break;
+            case R.id.mIv_spontaneity_back:
+                //选项二介绍
+                initPop(2);
                 break;
             case R.id.mTv_result:
                 //结论
@@ -1103,18 +1268,14 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
+    private void initPop(int id) {
+        View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.item_popup, null, false);
+        final PopupWindow popupWindow = new PopupWindow(inflate, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.setBackgroundDrawable(new ColorDrawable());
+
+        popupWindow.showAsDropDown(inflate,Gravity.BOTTOM,0);
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
 
 }

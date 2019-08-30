@@ -4,11 +4,17 @@ import android.Manifest;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.AMapOptions;
 import com.amap.api.maps.CameraUpdateFactory;
-import com.amap.api.maps.LocationSource;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.UiSettings;
 import com.amap.api.maps.model.CameraPosition;
@@ -19,6 +25,8 @@ import com.example.wayne.dentist.R;
 import com.example.wayne.dentist.base.BaseActivity;
 import com.example.wayne.dentist.mvp.Preselection.PreselectionPre;
 import com.example.wayne.dentist.mvp.Preselection.PreselectionView;
+import com.example.wayne.dentist.ui.adapter.Adapter_map;
+import com.example.wayne.dentist.ui.adapter.Adapter_srl;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,6 +35,28 @@ public class PreselectionActivity extends BaseActivity<PreselectionView, Presele
 
     @BindView(R.id.map)
     MapView map;
+    @BindView(R.id.mIv_getBack)
+    ImageView mIvGetBack;
+    @BindView(R.id.mTool)
+    Toolbar mTool;
+    //位置
+    @BindView(R.id.mTV_location)
+    TextView mTVLocation;
+    //手动设置位置
+    @BindView(R.id.mTv_import_location)
+    TextView mTvImportLocation;
+    //-------
+    @BindView(R.id.mTv_localizer)
+    TextView mTvLocalizer;
+    @BindView(R.id.mIv_location)
+    ImageView mIvLocation;
+     //----------------//
+    @BindView(R.id.mRv)
+    RecyclerView mRv;
+    @BindView(R.id.mCheck)
+    CheckBox mCheck;
+    @BindView(R.id.mBtn_submit)
+    Button mBtnSubmit;
     //操作地图的类
     private AMap aMap;
     //高德自带搜索
@@ -67,6 +97,16 @@ public class PreselectionActivity extends BaseActivity<PreselectionView, Presele
         }
         //改变地图默认显示区域
         initLatng(savedInstanceState);
+        //设置地图
+        initMap();
+
+        mRv.setLayoutManager(new LinearLayoutManager(this));
+        //Adapter_map
+        //mRv.setAdapter(mAdapterSrl);
+
+    }
+
+    private void initMap() {
 
         aMap.setMapType(AMap.MAP_TYPE_NORMAL);
         aMap.setTrafficEnabled(true);// 显示实时交通状况
@@ -81,8 +121,9 @@ public class PreselectionActivity extends BaseActivity<PreselectionView, Presele
         //myLocationStyle.strokeColor(getResources().getColor(R.color.blue));//设置定位蓝点精度圆圈的边框颜色的方法。
         //myLocationStyle.radiusFillColor(getResources().getColor(R.color.c_CFDEED));//设置定位蓝点精度圆圈的填充颜色的方法。
         //隐藏精度圈
-        myLocationStyle.strokeColor(Color.argb(0,0,0,0));
-        myLocationStyle.radiusFillColor(Color.argb(0,0,0,0));;
+        myLocationStyle.strokeColor(Color.argb(0, 0, 0, 0));
+        myLocationStyle.radiusFillColor(Color.argb(0, 0, 0, 0));
+        ;
         aMap.setMyLocationStyle(myLocationStyle);//设置定位蓝点的Style
         aMap.setMyLocationEnabled(true);// 设置为true表示启动显示定位蓝点，false表示隐藏定位蓝点并不进行定位，默认是false。
 
@@ -92,6 +133,7 @@ public class PreselectionActivity extends BaseActivity<PreselectionView, Presele
         mUiSettings.setCompassEnabled(true);//指南针
         mUiSettings.setScaleControlsEnabled(true);//比例尺
         mUiSettings.setMyLocationButtonEnabled(true);//设置默认定位按钮是否显示，非必需设置。
+
     }
 
     private void initLatng(Bundle savedInstanceState) {
@@ -112,7 +154,6 @@ public class PreselectionActivity extends BaseActivity<PreselectionView, Presele
         mapView.onCreate(savedInstanceState);
 
     }
-
 
 
     @Override

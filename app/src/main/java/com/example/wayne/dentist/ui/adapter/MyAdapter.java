@@ -31,8 +31,11 @@ public class MyAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int i) {
         Fragment_ency_son son = new Fragment_ency_son();
-        int ID = mList.get(i).getId();
-        son.setTab(ID);
+        TabBean.DataBean bean = mList.get(i);
+        int ID = bean.getId();
+        int tSortID = bean.getTSortID();
+
+        son.setTab(ID,tSortID);
         return son;
     }
 

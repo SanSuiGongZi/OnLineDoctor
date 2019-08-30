@@ -1,7 +1,6 @@
 package com.example.wayne.dentist.ui.fragment;
 
 
-import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,7 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -24,7 +22,6 @@ import com.example.wayne.dentist.mvp.encyclopedia.son.EncyPre_Son;
 import com.example.wayne.dentist.mvp.encyclopedia.son.EncyView_Son;
 import com.example.wayne.dentist.ui.adapter.Adapter_srl;
 import com.example.wayne.dentist.ui.adapter.MyAdapter_Vp;
-import com.example.wayne.dentist.util.ImageLoader;
 import com.example.wayne.dentist.util.ToastUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -51,6 +48,7 @@ public class Fragment_ency_son extends BaseFragment<EncyView_Son, EncyPre_Son> i
     SmartRefreshLayout mSrl;
     private ArrayList<Integer> mIcon;
     private int Pid;
+    private int mTSortID = 1;
     private int page;
     private Adapter_srl mAdapterSrl;
 
@@ -59,8 +57,9 @@ public class Fragment_ency_son extends BaseFragment<EncyView_Son, EncyPre_Son> i
     }
 
 
-    public void setTab(int str) {
+    public void setTab(int str, int tSortID) {
         Pid = str;
+        mTSortID = tSortID;
     }
 
     @Override
@@ -79,19 +78,34 @@ public class Fragment_ency_son extends BaseFragment<EncyView_Son, EncyPre_Son> i
         mPresenter.getTest(1);  //此为测试的数据
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void initView() {
         mRv.setLayoutManager(new LinearLayoutManager(getActivity()));
         mAdapterSrl = new Adapter_srl(getActivity());
         mRv.setAdapter(mAdapterSrl);
 
-        mTab.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;
-            }
-        });
+        mIcon = new ArrayList<>();
+
+        if (mTSortID == 1) {
+            mIcon.add(R.drawable.selector_structure);
+            mIcon.add(R.drawable.selector_upgrowth);
+            mIcon.add(R.drawable.selector_teeth_clean);
+            mIcon.add(R.drawable.selector_habit);
+            mIcon.add(R.drawable.selector_goto_a_doctor);
+        } else if (mTSortID == 2) {
+            mIcon.add(R.drawable.selector_examination);
+            mIcon.add(R.drawable.selector_periodontal);
+            mIcon.add(R.drawable.selector_toothl);
+            mIcon.add(R.drawable.selector_orthodontics);
+            mIcon.add(R.drawable.selector_therapies);
+
+        } else if (mTSortID == 3) {
+            mIcon.add(R.drawable.selector_weekly);
+            mIcon.add(R.drawable.selector_small_coup);
+            mIcon.add(R.drawable.selector_laboratory);
+            mIcon.add(R.drawable.selector_misunderstanding);
+            mIcon.add(R.drawable.selector_famous_doctors);
+        }
 
     }
 
@@ -99,14 +113,7 @@ public class Fragment_ency_son extends BaseFragment<EncyView_Son, EncyPre_Son> i
     public void tabData(TabSonBean tabSonBean) {
         final List<TabSonBean.DataBean> list = tabSonBean.getData();
 
-        mIcon = new ArrayList<>();
-        mIcon.add(R.drawable.selector_structure);
-        mIcon.add(R.drawable.selector_upgrowth);
-        mIcon.add(R.drawable.selector_teeth_clean);
-        mIcon.add(R.drawable.selector_habit);
-        mIcon.add(R.drawable.selector_goto_a_doctor);
-
-        if (page != 115) {
+        if (Pid != 115) {
             mTab.setVisibility(GridView.VISIBLE);
             for (int i = 0; i < list.size(); i++) {
                 mTab.addTab(mTab.newTab().setText(list.get(i).getTName()).setIcon(mIcon.get(i)));

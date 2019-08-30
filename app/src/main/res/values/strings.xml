@@ -59,6 +59,10 @@
     <string name="selectCity">城市/区域</string>
     <string name="concreteness">具体地址</string>
     <string name="Provinces">省市区选择</string>
+    <string name="protocol">我已阅读并同意《定保诊所服务三方协议》</string>
+    <string name="submit">提交预选申请</string>
+    <string name="official">门诊微官网</string>
+    <string name="ok_preselection" tools:ignore="TypographyDashes">可以预选1-2家诊所,最终定保诊所以系统匹配为准</string>
     <string name="preconcentration" tools:ignore="TypographyDashes">已预选定保门诊,等待系统审核,预计1-2个工作日</string>
 
     <!--  Login模块 -->
@@ -188,5 +192,11 @@
     <string name="hintUser">您的此次问诊已被记录并归入档案，您可以在数字病历中查询，或者开始新的问诊。</string>
     <string name="Number_of_cases">数字病例</string>
     <string name="newInquiry">新的问诊</string>
+
+    <!-- 提示 -->
+    <string name="spontaneity">自发性疼痛 \n 一般是指没有外界明显的刺激，自发产生的疼痛</string>
+    <string name="not_available">暂无解释</string>
+
+
 
 </resources>

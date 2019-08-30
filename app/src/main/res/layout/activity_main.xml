@@ -159,6 +159,7 @@
             android:layout_height="@dimen/dp_50"
             android:layout_marginLeft="@dimen/dp_20"
             android:layout_weight="1"
+            app:tabRippleColor="@color/white"
             android:background="@color/white"
             app:tabIndicatorHeight="@dimen/dp_0" />
 

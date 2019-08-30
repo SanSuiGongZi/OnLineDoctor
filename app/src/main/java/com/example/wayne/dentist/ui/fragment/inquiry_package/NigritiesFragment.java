@@ -11,6 +11,7 @@ import com.example.wayne.dentist.R;
 
 /**
  * A simple {@link Fragment} subclass.
+ * 牙齿发黑
  */
 public class NigritiesFragment extends Fragment {
 

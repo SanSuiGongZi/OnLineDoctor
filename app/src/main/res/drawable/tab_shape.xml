@@ -8,7 +8,4 @@
         android:bottomRightRadius="@dimen/dp_25" />
     <solid android:color="@color/white" />
 
-    <padding android:left="@dimen/dp_10"
-        android:right="@dimen/dp_10"/>
-
 </shape>

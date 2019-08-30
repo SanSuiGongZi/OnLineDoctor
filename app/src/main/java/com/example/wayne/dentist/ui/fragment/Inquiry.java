@@ -23,6 +23,7 @@ import com.example.wayne.dentist.base.BaseFragment;
 import com.example.wayne.dentist.mvp.inquiry.InquiryPre;
 import com.example.wayne.dentist.mvp.inquiry.InquiryView;
 import com.example.wayne.dentist.util.ToastUtil;
+import com.example.wayne.dentist.widget.MediumTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -310,7 +311,7 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                     mTvColdSweet.setText(getResources().getText(R.string.meet));
                     mTvHotFood.setText(getResources().getText(R.string.isIncapable));
 
-                } else if (mFeel.equals(getResources().getText(R.string.symptom_nigrities))){
+                } else if (mFeel.equals(getResources().getText(R.string.symptom_nigrities))) {
                     mTvAllDayLong.setVisibility(View.GONE);
                     mTvIs.setText(getResources().getText(R.string.yes_habit));
                     mTvEat.setText(getResources().getText(R.string.isToothwash));
@@ -364,7 +365,7 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                     mTvColdSweet.setText(getResources().getText(R.string.meet));
                     mTvHotFood.setText(getResources().getText(R.string.incapable));
 
-                } else if (mFeel.equals(getResources().getText(R.string.symptom_nigrities))){
+                } else if (mFeel.equals(getResources().getText(R.string.symptom_nigrities))) {
                     mTvAllDayLong.setVisibility(View.GONE);
                     mTvIs.setText(getResources().getText(R.string.no_habit));
                     mTvEat.setText(getResources().getText(R.string.isToothwash));
@@ -659,7 +660,7 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                     mTvPurePain.setVisibility(View.VISIBLE);
                     mTvNever.setVisibility(View.VISIBLE);
 
-                } else  {
+                } else {
                     mTvIsEat.setText(getResources().getText(R.string.if_stopEat_no));
 
                     mTvPurePain.setVisibility(View.GONE);
@@ -1107,7 +1108,6 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
                 mIvSpontaneityBack.setVisibility(View.VISIBLE);
 
                 if (mFeel.equals(getResources().getString(R.string.symptom_Bad_breath))) {
-                    Log.e(TAG, "onViewClicked: "+mPeculiar);
                     if (mPeculiar.equals(getResources().getString(R.string.yes_peculiar))) {
                         mIvInquiryBack.setVisibility(View.VISIBLE);
                     } else {
@@ -1270,11 +1270,22 @@ public class Inquiry extends BaseFragment<InquiryView, InquiryPre> implements In
 
     private void initPop(int id) {
         View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.item_popup, null, false);
-        final PopupWindow popupWindow = new PopupWindow(inflate, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        PopupWindow popupWindow = new PopupWindow(inflate, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        MediumTextView name = inflate.findViewById(R.id.mTv_popName);
+        TextView details = inflate.findViewById(R.id.mTv_popDetails);
+        if (id == 1) {
+            name.setText(R.string.symptom_nigrities);
+            details.setText(R.string.not_available);
+        } else if (id == 2) {
+            name.setText(R.string.describe_symptom_spontaneity);
+            details.setText(R.string.spontaneity);
+        }
+
         popupWindow.setOutsideTouchable(true);
         popupWindow.setBackgroundDrawable(new ColorDrawable());
 
-        popupWindow.showAsDropDown(inflate,Gravity.BOTTOM,0);
+        popupWindow.showAtLocation(inflate, Gravity.BOTTOM, 0, 0);
     }
 
 

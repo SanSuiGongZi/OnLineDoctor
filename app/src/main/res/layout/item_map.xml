@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioButton
+        android:id="@+id/mRb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:textSize="@dimen/dp_20" />
+
+    <TextView
+        android:id="@+id/mTv_History"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_toRightOf="@id/mRb"
+        android:text="@string/noS"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dp_16" />
+
+    <TextView
+        android:id="@+id/mTv_Location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mTv_History"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_toRightOf="@id/mRb"
+        android:text="@string/selectCity"
+        android:textSize="@dimen/dp_13" />
+
+    <ImageView
+        android:id="@+id/mIv_unfold"
+        android:scaleType="centerCrop"
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="@dimen/dp_20"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/dp_10"
+        android:src="@drawable/unfold" />
+
+    <TextView
+        android:id="@+id/mTv_official"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/mIv_unfold"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="@string/official"
+        android:textSize="@dimen/dp_16" />
+</RelativeLayout>

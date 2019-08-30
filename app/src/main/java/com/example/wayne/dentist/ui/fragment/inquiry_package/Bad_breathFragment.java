@@ -11,6 +11,7 @@ import com.example.wayne.dentist.R;
 
 /**
  * A simple {@link Fragment} subclass.
+ * 口腔有异味
  */
 public class Bad_breathFragment extends Fragment {
 
